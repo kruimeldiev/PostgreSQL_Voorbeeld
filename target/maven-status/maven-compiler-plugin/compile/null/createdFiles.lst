@@ -1,6 +1,7 @@
 org/example/GUI.class
 org/example/Main.class
-org/example/Database/DataKeysVoorbeeld.class
 module-info.class
 org/example/Database/DatabaseHelper.class
 org/example/Database/DataKeys.class
+org/example/GUI$1.class
+org/example/Database/DataKeysVoorbeeld.class

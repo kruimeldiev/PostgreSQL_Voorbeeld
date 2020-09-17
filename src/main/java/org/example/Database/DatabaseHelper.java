@@ -31,26 +31,25 @@ public class DatabaseHelper {
 
     }
 
-    public static void TableMaken(String tableNaam) {
+    public static void NaamToevoegen(String naamInvoer, String leeftijdInvoer) {
 
         try {
 
             Class.forName("org.postgresql.Driver");
             Connection conn = DriverManager.getConnection(DataKeys.CONN_URL, DataKeys.CONN_USER, DataKeys.CONN_PASS);
 
-            String query = "CREATE TABLE IF NOT EXISTS " + tableNaam + "(naam_id SERIAL PRIMARY KEY, naam varchar(32) NOT NULL, leeftijd int4)";
+            String query = "INSERT INTO namen(naam, leeftijd) VALUES ('" + naamInvoer + "', " + leeftijdInvoer + ");";
 
             Statement stat = conn.createStatement();
 
             stat.executeUpdate(query);
-
-            System.out.println("Nieuwe table aangemaakt");
 
             conn.close();
 
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
 
     public static void NamenOphalen() {
@@ -67,9 +66,10 @@ public class DatabaseHelper {
             ResultSet result = stat.executeQuery(query);
 
             while (result.next()) {
+                Integer id = result.getInt("naam_id");
                 String naam = result.getString("naam");
-                int leeftijd = result.getInt("leeftijd");
-                System.out.println(naam + " " + leeftijd);
+                Integer leeftijd = result.getInt("leeftijd");
+                System.out.println(id + " " + naam + " " + leeftijd);
             }
 
             conn.close();
@@ -77,6 +77,5 @@ public class DatabaseHelper {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 }
