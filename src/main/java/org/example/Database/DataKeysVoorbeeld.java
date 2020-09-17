@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Database;
 
 // Gezien we geen wachtwoorden of API keys op GitHub willen hebben staan, heb ik het originele DataKeys.java bestand in de .gitignore file gezet.
 // Dit bestand is een voorbeeld van hoe dat bestand eruit ziet, maar dan zonder alle gevoelige informatie.
@@ -6,5 +6,9 @@ package org.example;
 public class DataKeysVoorbeeld {
 
     static String CONN_URL = "";
+
+    static String CONN_USER = "";
+
+    static String CONN_PASS = "";
 
 }
