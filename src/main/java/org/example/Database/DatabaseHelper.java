@@ -18,8 +18,10 @@ public class DatabaseHelper {
                 System.out.println("Error bij connectie maken");
             }
 
+            conn.close();
+
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
     }
